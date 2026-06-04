@@ -84,8 +84,19 @@
 ---
 
 ## 🛠 开发指令与指南
-1. 所有文章将保存在本地工作区路径：`/Users/billwan/code/ai-learning-path/token-optimization/ai-tech-guide/`。
-2. 命名规则：`XX_tech_name_zh.md` 与 `XX_tech_name_en.md`，例如 `01_python_zh.md` 与 `01_python_en.md`。
-3. 每次开始前，Agent 需要：
-   - 读取本 `roadmap.md`，检查最近未完成的任务。
-   - 写完一篇文章后，将进度追踪表中的 `[ ]` 更新为 `[x]`。
+
+### 1. 写作受众与质量标准 (Target Audience & Quality Standards)
+*   **受众定位**：不局限于网络工程师，必须面向**技术小白、新手甚至普通人**。概念讲解必须通俗易懂，多使用生活中的比喻，避免堆砌晦涩难懂的专业术语。
+*   **内容充实度**：文章内容必须详实丰富，拒绝精简版或大纲版。
+*   **元素要求**：每篇文章必须包含**小技巧 (Tips)**、**避坑指南 (Pitfalls)**、**真实行业应用案例**与**相关知识点引用/参考资料 (References)**。
+
+### 2. 自动化审核机制 (Subagent Review Flow)
+每篇文章（中英文版）撰写完毕后，必须调用专门的审查 Subagent (`editor_reviewer`) 进行独立双语评审：
+1.  **评审维度**：专业性 (Professionalism)、易读性 (Readability)、丰富度 (Depth/Richness)、趣味与吸引力 (Engagement)。
+2.  **评分机制**：总分 10 分。
+3.  **门槛限制**：**评分必须达到 8 分或以上**才能执行 Git Push 推送到 GitHub。若低于 8 分，必须根据评审意见进行修改重写，直至评分达到 8 分以上。
+
+### 3. 文件命名与执行规则
+1.  所有文章保存在：`/Users/billwan/code/ai-learning-path/token-optimization/ai-tech-guide/`。
+2.  双语命名规则：`XX_tech_name_zh.md` 与 `XX_tech_name_en.md`。
+3.  写完一篇文章并通过审核后，将进度追踪表中的 `[ ]` 更新为 `[x]`，然后 commit 并 push。
